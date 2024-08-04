@@ -1,0 +1,9 @@
+.select-filter-label {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    font-size: 1.5rem;
+}
+.select-filter {
+    padding: 0.5rem;
+}

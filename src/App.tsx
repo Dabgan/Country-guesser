@@ -1,4 +1,4 @@
-import { SearchContainer } from './components/SearchContainer';
+import { SearchContainer } from './components/SearchContainer/SearchContainer';
 
 function App() {
     return <SearchContainer />;

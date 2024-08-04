@@ -1,0 +1,6 @@
+.country-list {
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(4, 1fr);
+    gap: 1rem;
+    max-width: 100%;
+}

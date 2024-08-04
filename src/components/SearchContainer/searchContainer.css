@@ -1,0 +1,17 @@
+
+.main-title {
+    font-size: 3rem;
+    color: #646cff;
+  }
+  
+  .search-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+  
+  .wrapper {
+   width: 1200px;
+   min-height: 90vh;
+  }
