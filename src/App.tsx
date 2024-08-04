@@ -1,9 +1,7 @@
+import { SearchContainer } from './components/SearchContainer';
+
 function App() {
-    return (
-        <>
-            <div></div>
-        </>
-    );
+    return <SearchContainer />;
 }
 
 export default App;
