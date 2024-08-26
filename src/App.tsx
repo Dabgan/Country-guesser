@@ -1,24 +1,21 @@
 import { useState } from 'react';
 import { SearchContainer } from './components/SearchContainer/SearchContainer';
 import { GuessContainer } from './components/GuessContainer/GuessContainer';
+import { RadioInput } from './components/RadioInput';
+import { GameMode } from './constants';
+import { type GameModeType } from './types/base';
 
 function App() {
-    const [mode, setMode] = useState('search');
+    const [mode, setMode] = useState<GameModeType>(GameMode.SEARCH);
 
     return (
         <div className="wrapper">
             <h1>Choose mode:</h1>
             <div className="game-mode">
-                <label className="game-mode-label">
-                    Search
-                    <input type="radio" value="search" checked={mode === 'search'} onChange={() => setMode('search')} />
-                </label>
-                <label className="game-mode-label">
-                    Guess
-                    <input type="radio" value="guess" checked={mode === 'guess'} onChange={() => setMode('guess')} />
-                </label>
+                <RadioInput value={GameMode.SEARCH} onChange={setMode} checked={mode === GameMode.SEARCH} />
+                <RadioInput value={GameMode.GUESS} onChange={setMode} checked={mode === GameMode.GUESS} />
             </div>
-            {mode === 'search' ? <SearchContainer /> : <GuessContainer />}
+            {mode === GameMode.SEARCH ? <SearchContainer /> : <GuessContainer />}
         </div>
     );
 }

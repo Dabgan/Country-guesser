@@ -3,12 +3,12 @@ import { SearchInput } from '../SearchInput/SearchInput';
 import { CountryList } from '../CountryList/CountryList';
 import { SelectFilter } from '../SelectFilter/SelectFilter';
 import { SelectSort } from '../SelectSort/SelectSort';
-import './searchContainer.css';
-
 import { useSortedCountries } from '../../hooks/useSortedCountries';
+import './searchContainer.css';
+import { FilterType } from '../../types/search';
 
 export const SearchContainer = () => {
-    const [filter, setFilter] = useState('name');
+    const [filter, setFilter] = useState<FilterType>('name');
     const [filterValue, setFilterValue] = useState('');
     const [sort, setSort] = useState('');
 

@@ -78,7 +78,7 @@ button:focus-visible {
   }
 }
 .wrapper {
-  width: 1200px;
+  width: 1000px;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
