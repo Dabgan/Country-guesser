@@ -41,7 +41,7 @@ export function GuessContainer() {
                     Next Country
                 </button>
             </div>
-            {randomCountry && <CountryCard country={randomCountry} guessMode={true} />}
+            {randomCountry && <CountryCard country={randomCountry} isGuessMode={true} />}
             {isGuessed !== null && (
                 <p className={`guess-result guess-${isGuessed ? 'correct' : 'incorrect'}`}>
                     {isGuessed ? 'Correct!' : 'Incorrect!'}

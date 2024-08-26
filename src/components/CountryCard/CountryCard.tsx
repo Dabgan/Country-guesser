@@ -3,14 +3,14 @@ import './countryCard.css';
 
 type CountryCardProps = {
     country: Country;
-    guessMode: boolean;
+    isGuessMode?: boolean;
 };
 
-export const CountryCard: React.FC<CountryCardProps> = ({ country, guessMode }) => {
+export const CountryCard: React.FC<CountryCardProps> = ({ country, isGuessMode }) => {
     return (
         <div className="country-card">
             <img src={country.flags.png} alt={country.flags.alt} />
-            {!guessMode && (
+            {!isGuessMode && (
                 <>
                     <h2>{country.name.common}</h2>
                     <p>Capital: {country.capital}</p>
