@@ -19,14 +19,14 @@ export const SearchContainer = () => {
     const setSortCallback = useCallback(setSort, [setSort]);
 
     return (
-        <div className="wrapper">
-            <h1 className="main-title">Search Country</h1>
+        <>
+            <h2 className="main-title">Search Country</h2>
             <div className="search-container">
                 <SelectFilter value={filter} onChange={setFilterCallback} />
                 <SelectSort sortingOption={sort} onChange={setSortCallback} />
             </div>
             <SearchInput value={filterValue} onChange={setFilterValueCallback} />
             <CountryList countries={sortedCountries} />
-        </div>
+        </>
     );
 };
