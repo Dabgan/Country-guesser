@@ -5,31 +5,34 @@ import { Country } from '../../types/apiTypes';
 import { fetchRandomCountry } from '../../api/fetchRandomCountry';
 import './guessContainer.css';
 
-export function GuessContainer() {
+export const GuessContainer: React.FC = () => {
     const [randomCountry, setRandomCountry] = useState<Country | null>(null);
     const [search, setSearch] = useState('');
     const [isGuessed, setIsGuessed] = useState<boolean | null>(null);
-
-    useEffect(() => {
-        fetchRandomCountry().then(country => {
-            setRandomCountry(country);
-        });
-    }, []);
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         setIsGuessed(null);
         e.preventDefault();
         const userGuess = search.toLowerCase();
         const correctGuess = randomCountry?.name.common.toLowerCase() === userGuess;
+        // react will re-render and shake animation will trigger
         setTimeout(() => setIsGuessed(correctGuess), 0);
     };
 
     const handleNextCountry = async () => {
         setSearch('');
-        const newRandomCountry = await fetchRandomCountry();
-        setRandomCountry(newRandomCountry);
         setIsGuessed(null);
+        try {
+            const newRandomCountry = await fetchRandomCountry();
+            setRandomCountry(newRandomCountry);
+        } catch (error) {
+            console.error('Failed to fetch random country:', error);
+        }
     };
+
+    useEffect(() => {
+        handleNextCountry();
+    }, []);
 
     return (
         <form onSubmit={handleSubmit}>
@@ -49,4 +52,4 @@ export function GuessContainer() {
             )}
         </form>
     );
-}
+};

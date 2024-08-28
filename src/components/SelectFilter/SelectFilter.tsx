@@ -1,4 +1,5 @@
-import { FilterType } from '../../types/search';
+import { FILTER_OPTIONS } from '../../constants';
+import type { FilterType } from '../../types/search';
 import './selectFilter.css';
 
 type SelectFilter = {
@@ -11,10 +12,10 @@ export const SelectFilter: React.FC<SelectFilter> = ({ value, onChange }) => {
         <label htmlFor="select-filter" className="select-filter-label">
             Search by
             <select value={value} onChange={e => onChange(e.target.value as FilterType)} className="select-filter">
-                <option value={'name'}>Name</option>
-                <option value={'capital'}>Capital</option>
-                <option value={'lang'}>Languages</option>
-                <option value={'currency'}>Currency</option>
+                <option value={FILTER_OPTIONS.NAME}>Name</option>
+                <option value={FILTER_OPTIONS.CAPITAL}>Capital</option>
+                <option value={FILTER_OPTIONS.LANGUAGE}>Languages</option>
+                <option value={FILTER_OPTIONS.CURRENCY}>Currency</option>
             </select>
         </label>
     );

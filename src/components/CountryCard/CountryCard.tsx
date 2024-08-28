@@ -6,7 +6,7 @@ type CountryCardProps = {
     isGuessMode?: boolean;
 };
 
-export const CountryCard: React.FC<CountryCardProps> = ({ country, isGuessMode }) => {
+export const CountryCard: React.FC<CountryCardProps> = ({ country, isGuessMode = false }) => {
     return (
         <div className="country-card">
             <img src={country.flags.png} alt={country.flags.alt} />
